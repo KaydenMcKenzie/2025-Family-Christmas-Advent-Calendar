@@ -1,0 +1,52 @@
+:root{
+  --pine:#0f3d3e; --red:#b0182a; --gold:#d4a017; --snow:#f7f7fb; --night:#0b132b;
+  --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.18);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto; color:var(--snow);
+  background: radial-gradient(1200px 600px at 10% -10%, #153f5a 0, var(--night) 60%) fixed;
+}
+.site-header{text-align:center; padding:2rem 1rem}
+h1{font-family:Cinzel,serif; font-weight:800; letter-spacing:.5px; margin:.25rem 0}
+.subtitle{opacity:.85; margin:.25rem 0 1rem}
+#muteToggle{
+  border:1px solid rgba(255,255,255,.25); background:transparent; color:var(--snow);
+  padding:.5rem .9rem; border-radius:999px; cursor:pointer
+}
+.calendar{
+  width:min(1100px, 92vw); margin:1rem auto 3rem; display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+.door{
+  position:relative; aspect-ratio: 1/1.1; border-radius:var(--radius);
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow);
+  display:grid; place-items:center; text-align:center; padding:1rem; cursor:pointer;
+  transition: transform .15s ease, filter .2s ease, outline-color .2s ease;
+  outline:2px solid transparent;
+}
+.door:hover{ transform: translateY(-2px); filter:brightness(1.05) }
+.door:focus-visible{ outline-color:var(--gold) }
+.door.locked{ filter:grayscale(.45); opacity:.8; cursor:not-allowed }
+.door .num{ font-family:Cinzel,serif; font-size:2rem }
+.door .label{ font-size:.9rem; opacity:.85 }
+.door.done::after{
+  content:"✓"; position:absolute; top:8px; right:10px;
+  background:var(--gold); color:#222; border-radius:999px; padding:.1rem .4rem; font-weight:700
+}
+dialog{
+  width:min(720px,92vw); border:none; border-radius:var(--radius); padding:0; color:#222;
+  background:#fff; box-shadow:var(--shadow);
+}
+dialog::backdrop{ backdrop-filter: blur(3px) brightness(.8); }
+#modal > .close{
+  position:absolute; top:10px; right:10px; border:none; background:#eee; border-radius:999px;
+  width:36px; height:36px; cursor:pointer;
+}
+#modal h2{ margin:0; padding:1.1rem 1.1rem .2rem; font-family:Cinzel,serif }
+#modal #modalContent{ padding: .6rem 1.1rem 1.1rem; line-height:1.55 }
+.mark-done, .share{
+  margin:.6rem 1.1rem 1.2rem 0; padding:.6rem 1rem; border-radius:10px; border:1px solid #ddd; background:#fafafa; cursor:pointer
+}
+.site-footer{ text-align:center; padding:2rem 1rem; opacity:.7 }

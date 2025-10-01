@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Christmas Advent Calendar</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600..900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 aria-live="polite">Christmas Advent Calendar</h1>
+    <p class="subtitle">Count down to Christmas with a new surprise each day.</p>
+    <button id="muteToggle" aria-pressed="true" aria-label="Toggle background music">🔔 Music</button>
+  </header>
+
+  <main id="calendar" class="calendar" role="grid" aria-label="Advent calendar">
+    <!-- Doors will be loaded here by JS -->
+  </main>
+
+  <dialog id="modal" aria-labelledby="modalTitle">
+    <button class="close" aria-label="Close">×</button>
+    <h2 id="modalTitle"></h2>
+    <div id="modalContent"></div>
+    <button class="mark-done">Mark as done ✅</button>
+    <button class="share">Share</button>
+  </dialog>
+
+  <footer class="site-footer">Made with ❤️, cocoa, and carols.</footer>
+
+  <audio id="bgm" loop>
+    <source src="assets/audio/soft-carol.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
