@@ -1,34 +1,67 @@
-"day": 1,  
-"title": "Day 1 Activity",  
-"image": "assets/img/Door01.png",  
-"modalImage": "assets/placeholders/placeholder",              
-"link": "",
-"bonusLink": "https://www.canva.com/design/DAG0X5zRjtM/XgF7hRyT6uMRs95QmYFlBQ/edit?utm_content=DAG0X5zRjtM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"   
- },
-  { 
-
-  { "day": 2, "title": "Paper Snowflakes", "type": "download", "badge": "Craft", "html": "<p>Cut a few paper snowflakes and tape them to a window.</p>", "cta": { "label": "Snowflake templates (PDF)", "href": "#" } },
-  { "day": 3, "title": "Kindness Bingo", "type": "download", "badge": "Kind", "html": "<p>Do three kind things today. Bonus: share one in a message to someone you love.</p>", "cta": { "label": "Bingo card (PDF)", "href": "#" } },
-  { "day": 4, "title": "Emoji Carol Quiz", "type": "quiz", "badge": "Quiz", "html": "<p>Guess the carols from emoji clues!</p><ol><li>🎵❄️❄️❄️</li><li>🛷⛰️➡️🏠</li><li>👶🌟🐂🐑</li></ol><p>Answers: 1) Let It Snow 2) Sleigh Ride 3) Away in a Manger</p>" },
-  { "day": 5, "title": "Gift Tag Templates", "type": "download", "badge": "Print", "html": "<p>Print and cut cozy gift tags. Add a touch of gold pen if you have one!</p>", "cta": { "label": "Gift tags (PDF/Canva)", "href": "#" } },
-  { "day": 6, "title": "Cozy Cocoa Recipe", "type": "recipe", "badge": "Treat", "html": "<p>Warm milk, cocoa powder, a little sugar, pinch of salt, vanilla. Optional: whipped cream and a dash of cinnamon.</p>" },
-  { "day": 7, "title": "Winter Word Search", "type": "download", "badge": "Puzzle", "html": "<p>Find hidden winter words. Time yourself for fun!</p>", "cta": { "label": "Word search (PDF)", "href": "#" } },
-  { "day": 8, "title": "Guess the Jingle", "type": "audio", "badge": "Game", "html": "<p>Play 10-second clips and name that jingle.</p>", "cta": { "label": "Play clips", "href": "#" } },
-  { "day": 9, "title": "Ornament Coloring Page", "type": "download", "badge": "Color", "html": "<p>Relax with a festive ornament coloring page.</p>", "cta": { "label": "Coloring page (PDF)", "href": "#" } },
-  { "day": 10, "title": "Spot the Difference", "type": "game", "badge": "Puzzle", "html": "<p>Two nearly identical scenes—can you spot all 7 differences?</p>", "cta": { "label": "Open puzzle", "href": "#" } },
-  { "day": 11, "title": "Pixel Art Reveal", "type": "activity", "badge": "Craft", "html": "<p>Color-by-grid to reveal a hidden holiday picture. Try it digitally or on graph paper.</p>", "cta": { "label": "Printable grid (PDF)", "href": "#" } },
-  { "day": 12, "title": "Holiday Trivia (10 Qs)", "type": "quiz", "badge": "Quiz", "html": "<p>How many can you get right? Make it a family challenge.</p>", "cta": { "label": "Start trivia", "href": "#" } },
-  { "day": 13, "title": "North Pole Map Riddle", "type": "riddle", "badge": "Explore", "html": "<p>Follow the riddle to find a famous snowy landmark on a map app. Leave a dropped pin and share a screenshot.</p>" },
-  { "day": 14, "title": "DIY Wrapping Paper", "type": "craft", "badge": "Craft", "html": "<p>Use brown paper, potato stamps, or markers to create your own wrapping paper. Add twine for a rustic touch.</p>" },
-  { "day": 15, "title": "Winter Logic Grid", "type": "puzzle", "badge": "Puzzle", "html": "<p>Use the clues to match who brought which treat to the party.</p>", "cta": { "label": "Logic puzzle (PDF)", "href": "#" } },
-  { "day": 16, "title": "Secret Message Cipher", "type": "puzzle", "badge": "Cipher", "html": "<p>Decode the message: <code>V qvfgnag lbh n qvssrerag orfg zna!</code> (Hint: ROT13)</p>" },
-  { "day": 17, "title": "Build-a-Snowman", "type": "game", "badge": "Play", "html": "<p>Drag and drop to assemble your ideal snowman. Top hat or beanie?</p>", "cta": { "label": "Open mini-game", "href": "#" } },
-  { "day": 18, "title": "Gratitude Letter", "type": "activity", "badge": "Kind", "html": "<p>Write a short note to someone who helped you this year. Even a quick text counts.</p>" },
-  { "day": 19, "title": "Festive E-Card", "type": "download", "badge": "Share", "html": "<p>Customize and send a cheerful e-card to a friend or coworker.</p>", "cta": { "label": "Open template", "href": "#" } },
-  { "day": 20, "title": "Memory Match", "type": "game", "badge": "Game", "html": "<p>Flip the cards to find all 8 pairs. Time yourself!</p>", "cta": { "label": "Play now", "href": "#" } },
-  { "day": 21, "title": "Cozy Wallpaper Pack", "type": "download", "badge": "Bonus", "html": "<p>Freshen up your phone or desktop with a winter wallpaper.</p>", "cta": { "label": "Download ZIP", "href": "#" } },
-  { "day": 22, "title": "Acts of Kindness List", "type": "activity", "badge": "Kind", "html": "<p>Pick one small kindness to do today: donate a can, hold a door, or compliment someone sincerely.</p>" },
-  { "day": 23, "title": "Which Gift Goes Where?", "type": "puzzle", "badge": "Logic", "html": "<p>Deduce which gift belongs to which person using the provided clues.</p>", "cta": { "label": "Puzzle sheet (PDF)", "href": "#" } },
-  { "day": 24, "title": "Choose-Your-Own Cozy Story", "type": "story", "badge": "Story", "html": "<p>Click through a short branching story set on Christmas Eve.</p>", "cta": { "label": "Start story", "href": "#" } },
-  { "day": 25, "title": "Merry Christmas! 🎄", "type": "celebrate", "badge": "Finale", "html": "<p>Big finale! Enjoy a short message and a special bonus download.</p>", "cta": { "label": "Finale surprise", "href": "#" } }
+[
+  {
+    "day": 13,
+    "title": "Who's Coming For Dinner?",
+    "html": "<img src='assets/img/coverpages/day13.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>The countdown to Christmas begins! Take a moment to get cozy and enjoy the season.</p>"
+  },
+  {
+    "day": 14,
+    "title": "Polar Express Cryptogram",
+    "html": "<assets/img/coverpages/day14.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Pick a favorite Christmas movie, grab some snacks, and enjoy a festive night in.</p>"
+  },
+  {
+    "day": 15,
+    "title": "Carol Crossword",
+    "html": "<img src='assets/img/coverpages/day15.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Make yourself a warm drink — cocoa, tea, or coffee — and savor a quiet moment.</p>"
+  },
+  {
+    "day": 16,
+    "title": "Holiday Hangman",
+    "html": "<img src='assets/img/coverpages/day16.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Do one small act of kindness today. It can be as simple as a smile or a kind message.</p>"
+  },
+  {
+    "day": 17,
+    "title": "Reindeer Seek & Find",
+    "html": "<img src='assets/img/coverpages/day17.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Put on your favorite Christmas music and let it fill your space with cheer.</p>"
+  },
+  {
+    "day": 18,
+    "title": "Letters to Santa",
+    "html": "<img src='assets/img/coverpages/day18.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Bake cookies, brownies, or a festive treat — or simply enjoy one you love.</p>"
+  },
+  {
+    "day": 19,
+    "title": "Gingerbread Suduko",
+    "html": "<img src='assets/img/coverpages/day19.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Add a little Christmas cheer somewhere — a decoration, lights, or even your desk.</p>"
+  },
+  {
+    "day": 20,
+    "title": "4 Pics 1 Word",
+    "html": "<img src='assets/img/coverpages/day20.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Look through old holiday photos or reflect on a favorite Christmas memory.</p>"
+  },
+  {
+    "day": 21,
+    "title": "Word Scramble",
+    "html": "<img src='assets/img/coverpages/day21.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Dim the lights, light a candle, and enjoy a peaceful, cozy evening.</p>"
+  },
+  {
+    "day": 22,
+    "title": "Movie Emoji",
+    "html": "<img src='assets/img/coverpages/day22.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Write down three things you’re grateful for this season.</p>"
+  },
+  {
+    "day": 23,
+    "title": "Find The Hidden Word",
+    "html": "<img src='assets/img/coverpages/day23.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Send a message or call someone you haven’t talked to in a while.</p>"
+  },
+  {
+    "day": 24,
+    "title": "Clue-Murder at the North Pole",
+    "html": "<img src='assets/img/coverpages/day24.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Enjoy the magic of Christmas Eve. Slow down and take it all in.</p>"
+  },
+  {
+    "day": 25,
+    "title": "Merry Christmas 🎄",
+    "html": "<img src='assets/img/coverpages/day25.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Merry Christmas! I hope your day is filled with warmth, love, and joy.</p>"
+  }
 ]
