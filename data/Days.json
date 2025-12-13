@@ -1,4 +1,12 @@
-{ "day": 1, "title": "Welcome & Countdown Kickoff", "type": "message", "badge": "Start", "html": "<p>Welcome to the Christmas Advent Calendar! Click a door each day. Mark it done to track your progress.</p>" },
+"day": 1,  
+"title": "Day 1 Activity",  
+"image": "assets/img/Door01.png",  
+"modalImage": "assets/placeholders/placeholder",              
+"link": "",
+"bonusLink": "https://www.canva.com/design/DAG0X5zRjtM/XgF7hRyT6uMRs95QmYFlBQ/edit?utm_content=DAG0X5zRjtM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"   
+ },
+  { 
+
   { "day": 2, "title": "Paper Snowflakes", "type": "download", "badge": "Craft", "html": "<p>Cut a few paper snowflakes and tape them to a window.</p>", "cta": { "label": "Snowflake templates (PDF)", "href": "#" } },
   { "day": 3, "title": "Kindness Bingo", "type": "download", "badge": "Kind", "html": "<p>Do three kind things today. Bonus: share one in a message to someone you love.</p>", "cta": { "label": "Bingo card (PDF)", "href": "#" } },
   { "day": 4, "title": "Emoji Carol Quiz", "type": "quiz", "badge": "Quiz", "html": "<p>Guess the carols from emoji clues!</p><ol><li>🎵❄️❄️❄️</li><li>🛷⛰️➡️🏠</li><li>👶🌟🐂🐑</li></ol><p>Answers: 1) Let It Snow 2) Sleigh Ride 3) Away in a Manger</p>" },

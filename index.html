@@ -4,28 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Christmas Advent Calendar</title>
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700..900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
   <!-- Snow background canvas -->
   <canvas id="snowCanvas"></canvas>
 
-  <header class="site-header" role="banner">
-    <h1 aria-live="polite">Christmas Advent Calendar</h1>
+  <header class="site-header">
+    <h1>Christmas Advent Calendar</h1>
     <p class="subtitle">Count down to Christmas with a new surprise each day.</p>
+
     <div class="toolbar">
-      <button id="muteToggle" aria-pressed="true" aria-label="Toggle background music">🔔 Music</button>
-      <button id="snowToggle" aria-pressed="true" aria-label="Toggle snowfall">❄️ Snow</button>
+      <!-- ❌ Music button removed -->
+      <button id="snowToggle" aria-pressed="true">❄️ Snow</button>
     </div>
   </header>
 
-  <main id="calendar" class="calendar" role="grid" aria-label="Advent calendar">
-    <!-- Doors injected by app.js -->
-  </main>
+  <main id="calendar" class="calendar"></main>
 
-  <dialog id="modal" aria-labelledby="modalTitle">
+  <dialog id="modal">
     <button class="close" aria-label="Close">×</button>
     <h2 id="modalTitle"></h2>
     <div id="modalContent"></div>
@@ -35,11 +37,12 @@
     </div>
   </dialog>
 
-  <footer class="site-footer">Made with ❤️, cocoa, and carols.</footer>
+  <footer class="site-footer">
+    Made with ❤️, cocoa, and carols.
+  </footer>
 
-  <audio id="bgm" loop>
-    <source src="assets/audio/soft-carol.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Audio left in place but unused -->
+  <audio id="bgm" loop></audio>
 
   <script src="assets/js/app.js" defer></script>
 </body>

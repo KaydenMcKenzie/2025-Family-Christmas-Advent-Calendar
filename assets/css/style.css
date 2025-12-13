@@ -1,168 +1,309 @@
 /* ==============================
-   Core theme (DESKTOP UNCHANGED)
+   CORE THEME – deep blue winter
    ============================== */
 :root{
-  --pine:#0f3d3e; 
-  --red:#b0182a; 
-  --gold:#d4a017; 
-  --snow:#f7f7fb; 
+  --pine:#0f3d3e;
+  --red:#b0182a;
+  --gold:#d4a017;
+  --snow:#f7f7fb;
   --night:#0b132b;
-  --radius:14px; 
-  --shadow:0 6px 18px rgba(0,0,0,.18);
+
+  --radius:22px;
+  --card-shadow:0 10px 30px rgba(0,0,0,.35);
+  --card-border:rgba(255,255,255,.18);
 }
 
 *{ box-sizing:border-box }
-
 html,body{ height:100% }
 
 body{
-  margin:0; 
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; 
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   color:var(--snow);
-  background: radial-gradient(1200px 600px at 10% -10%, #153f5a 0, var(--night) 60%) fixed;
+  /* deep blue gradient background */
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #153f5a 0, var(--night) 60%) fixed;
   overflow-x:hidden;
 }
 
-/* Snow canvas stays behind everything */
+/* Snow canvas behind everything */
 #snowCanvas{
-  position:fixed; inset:0; width:100vw; height:100vh; 
-  pointer-events:none; z-index:1;
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  pointer-events:none;
+  z-index:1;
 }
 
-/* Header */
+/* HEADER */
 .site-header{
-  text-align:center; padding:2rem 1rem; position:relative; z-index:2;
+  text-align:center;
+  padding:2rem 1rem 1.2rem;
+  position:relative;
+  z-index:2;
 }
 h1{
-  font-family:Cinzel,serif; 
-  font-weight:800; 
-  letter-spacing:.5px; 
+  font-family:Cinzel,serif;
+  font-weight:800;
+  letter-spacing:.5px;
   margin:.25rem 0;
 }
-.subtitle{ opacity:.85; margin:.25rem 0 1rem }
+.subtitle{
+  opacity:.85;
+  margin:.25rem 0 1rem;
+}
+.toolbar{
+  display:inline-flex;
+  gap:.5rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 
-/* Buttons (keep existing look) */
 button{
   font:inherit;
-  border:1px solid rgba(255,255,255,.25); 
-  background:transparent; 
+  border:1px solid rgba(255,255,255,.25);
+  background:transparent;
   color:var(--snow);
-  padding:.5rem .9rem; 
-  border-radius:999px; 
+  padding:.5rem .9rem;
+  border-radius:999px;
   cursor:pointer;
 }
-#snowToggle[aria-pressed="true"], 
+#snowToggle[aria-pressed="true"],
 #muteToggle[aria-pressed="true"]{
-  box-shadow:0 0 0 2px rgba(212,160,23,.35), 0 0 14px rgba(212,160,23,.25) inset;
+  box-shadow:0 0 0 2px rgba(212,160,23,.35),
+             0 0 14px rgba(212,160,23,.25) inset;
 }
 
-/* Calendar grid (desktop behavior preserved) */
+/* CALENDAR GRID */
 .calendar{
-  position:relative; z-index:2;
-  width:min(1100px, 92vw); 
-  margin:1rem auto 3rem; 
-  display:grid; 
-  gap:16px;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  position:relative;
+  z-index:2;
+  width:min(1100px, 92vw);
+  margin:1rem auto 3rem;
+  display:grid;
+  gap:18px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
-/* Doors (original gradient, border, shadows) */
+/* =========================================
+   DOOR CARD – rectangular, blue, frosted
+   ========================================= */
 .door{
-  position:relative; 
-  aspect-ratio: 1/1.1; 
+  position:relative;
+  display:block;
+  aspect-ratio: 3/4;                 /* keep tall card shape */
   border-radius:var(--radius);
-  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.18); 
-  box-shadow:var(--shadow);
-  display:grid; 
-  place-items:center; 
-  text-align:center; 
-  padding:1rem; 
+  padding:8px;
+  background:
+    radial-gradient(circle at top left, rgba(70,105,140,0.35), rgba(15,35,70,0.9) 65%),
+    linear-gradient(180deg, rgba(20,40,80,0.9), rgba(5,15,35,0.98));
+  border:1px solid var(--card-border);
+  box-shadow:var(--card-shadow);
   cursor:pointer;
-  transition: transform .15s ease, filter .2s ease, outline-color .2s ease;
+  transition: transform .16s ease, box-shadow .16s ease, filter .2s ease;
   outline:2px solid transparent;
-}
-.door:hover{ transform: translateY(-2px); filter:brightness(1.05) }
-.door:focus-visible{ outline-color:var(--gold) }
-.door.locked{ filter:grayscale(.45); opacity:.8; cursor:not-allowed }
-
-/* Door text — restore original sizes/fonts */
-.door .num{ 
-  font-family:Cinzel,serif; 
-  font-size:2rem;        /* original desktop size */
-}
-.door .label{ 
-  font-size:.9rem;       /* original desktop size */
-  opacity:.85; 
+  overflow:hidden;                   /* needed for frost edge */
 }
 
-/* Done tick (unchanged) */
+.door:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px rgba(0,0,0,.55);
+}
+.door:focus-visible{
+  outline-color:var(--gold);
+}
+.door.locked{
+  filter:grayscale(.55) brightness(.9);
+  cursor:not-allowed;
+}
+.door.done{
+  box-shadow:0 0 0 2px var(--gold), 0 14px 40px rgba(0,0,0,.55);
+}
+
+/* Subtle frost edge */
+.door::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 0 0,       rgba(255,255,255,0.22), transparent 55%),
+    radial-gradient(circle at 100% 0,    rgba(255,255,255,0.20), transparent 55%),
+    radial-gradient(circle at 0 100%,    rgba(255,255,255,0.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255,255,255,0.16), transparent 55%),
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.16),
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.16)
+    );
+  mix-blend-mode:screen;
+  opacity:0.30;
+  z-index:3;
+}
+.door:hover::before{
+  opacity:0.42;
+}
+
+/* INNER CARD CONTENT */
+.door-inner{
+  position:relative;
+  height:100%;
+  width:100%;
+  border-radius:calc(var(--radius) - 6px);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(140,175,220,0.16), rgba(10,25,55,0.96) 70%);
+  padding:6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Number badge */
+.day-badge{
+  position:absolute;
+  top:10px;
+  left:12px;
+  min-width:32px;
+  padding:.2rem .55rem;
+  border-radius:999px;
+  background:rgba(3,9,22,.9);
+  color:#fff;
+  font-family:Cinzel,serif;
+  font-weight:700;
+  font-size:.9rem;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
+  z-index:4;
+}
+
+/* Door art – fills more of the tile */
+.door-art{
+  width:100%;
+  flex:1;
+  border-radius:18px;
+  padding:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.door-art img{
+  max-width:100%;
+  max-height:100%;
+  display:block;
+  border-radius:16px;
+}
+
+/* No "Day X" label under doors */
+.door-label{
+  display:none;
+}
+
+/* DONE checkmark */
 .door.done::after{
-  content:"✓"; position:absolute; top:8px; right:10px;
-  background:var(--gold); color:#222; border-radius:999px; 
-  padding:.1rem .4rem; font-weight:700;
-}
-
-/* Dialog (unchanged) */
-dialog{
-  width:min(720px,92vw); border:none; border-radius:var(--radius); padding:0; 
+  content:"✓";
+  position:absolute;
+  top:8px;
+  right:10px;
+  background:var(--gold);
   color:#222;
-  background:#fff; box-shadow:var(--shadow); z-index:3;
-}
-dialog::backdrop{ backdrop-filter: blur(3px) brightness(.8); }
-#modal > .close{
-  position:absolute; top:10px; right:10px; border:none; background:#eee; border-radius:999px;
-  width:36px; height:36px; cursor:pointer;
-}
-#modal h2{ margin:0; padding:1.1rem 1.1rem .2rem; font-family:Cinzel,serif }
-#modal #modalContent{ padding: .6rem 1.1rem 1.1rem; line-height:1.55 }
-.mark-done, .share{
-  margin:.6rem 1.1rem 1.2rem 0; padding:.6rem 1rem; border-radius:10px; 
-  border:1px solid #ddd; background:#fafafa; cursor:pointer; color:#222;
+  border-radius:999px;
+  padding:.1rem .4rem;
+  font-weight:700;
+  z-index:4;
 }
 
-/* Footer (unchanged) */
-.site-footer{ text-align:center; padding:2rem 1rem; opacity:.7; position:relative; z-index:2 }
+/* ==============
+   DIALOG
+   ============== */
+dialog{
+  width:min(720px,92vw);
+  border:none;
+  border-radius:18px;
+  padding:0;
+  color:#222;
+  background:#fff;
+  box-shadow:0 16px 40px rgba(0,0,0,.5);
+  z-index:3;
+}
+dialog::backdrop{
+  backdrop-filter: blur(4px) brightness(.85);
+}
+#modal > .close{
+  position:absolute;
+  top:10px; right:10px;
+  border:none;
+  background:#eee;
+  border-radius:999px;
+  width:36px; height:36px;
+  cursor:pointer;
+  font-size:1.1rem;
+}
+#modal h2{
+  margin:0;
+  padding:1.1rem 1.1rem .2rem;
+  font-family:Cinzel,serif;
+}
+#modal #modalContent{
+  padding:.6rem 1.1rem 1.1rem;
+  line-height:1.55;
+}
+.modal-actions{
+  display:flex;
+  gap:.6rem;
+  padding:0 1.1rem 1.2rem;
+}
+.mark-done, .share{
+  margin:0;
+  padding:.6rem 1rem;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fafafa;
+  cursor:pointer;
+  color:#222;
+}
+
+/* FOOTER */
+.site-footer{
+  text-align:center;
+  padding:2rem 1rem;
+  opacity:.7;
+  position:relative;
+  z-index:2;
+}
 
 /* ===============================
-   📱 MOBILE-ONLY REFINEMENTS
-   (desktop above remains unchanged)
+   📱 MOBILE REFINEMENTS
    =============================== */
 
-/* Under 600px → suggest 4 columns, tighter spacing */
+/* Under 600px → ~4 columns */
 @media (max-width: 600px){
   .calendar{
     grid-template-columns: repeat(4, 1fr);
     gap:14px;
   }
-  .door .num{ font-size:1.8rem; }
-  .door .label{ font-size:.85rem; }
-  .subtitle{ margin-bottom: .9rem; }
 }
 
-/* Under 428px → 3 columns, scale type a bit */
+/* Under 428px → 3 columns */
 @media (max-width: 428px){
   .calendar{ grid-template-columns: repeat(3, 1fr); }
   h1{ font-size: clamp(1.6rem, 6vw, 2rem); }
-  .door .num{ font-size:1.6rem; }
-  .door .label{ font-size:.82rem; }
-  .mark-done, .share{ padding:.55rem .9rem; }
 }
 
-/* Under 375px → 2 columns, stack buttons if needed */
+/* Under 375px → 2 columns; full-width controls */
 @media (max-width: 375px){
   .calendar{ grid-template-columns: repeat(2, 1fr); gap:12px; }
-  .door{ padding:.85rem; }
-  .door .num{ font-size:1.5rem; }
-  .door .label{ font-size:.8rem; }
-  /* Buttons go full-width for easier taps */
-  #muteToggle, #snowToggle{ width:100%; text-align:center; }
+  .door{ padding:6px; }
+  .toolbar{ flex-direction:column; }
+  #muteToggle,#snowToggle{ width:100%; text-align:center; }
   .site-footer{ padding-bottom:1.5rem; }
 }
 
-/* Very small (~320px) guardrails */
+/* Tiny (~320px) guardrails */
 @media (max-width: 340px){
-  .door .num{ font-size:1.4rem; }
-  .door .label{ font-size:.78rem; }
+  .day-badge{ min-width:30px; font-size:.8rem; }
   h1{ font-size:1.5rem; }
 }
