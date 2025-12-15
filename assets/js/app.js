@@ -8,18 +8,18 @@ const START_MONTH = 12;
 const START_DAY = 13;
 const END_DAY = 25;
 
-// Scramble order
+// Stable scramble order
 const STABLE_SCRAMBLE = true;
 
-// Secret preview mode trigger:
-// Example: https://yoursite.com/?preview=1
+// Secret preview:
+// https://yoursite.com/?preview=1
 function isPreviewFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("preview") === "1";
 }
 const PREVIEW_MODE = isPreviewFromURL();
 
-// Build door list: [13, 14, ..., 25]
+// Build door list: [13..25]
 const DOOR_DAYS = Array.from(
   { length: END_DAY - START_DAY + 1 },
   (_, i) => START_DAY + i
@@ -61,7 +61,7 @@ function todayInTZ() {
 }
 
 function isUnlocked(day) {
-  if (PREVIEW_MODE) return true; // ✅ unlock everything in preview mode
+  if (PREVIEW_MODE) return true;
   const t = todayInTZ();
   const unlockDate = new Date(t.getFullYear(), START_MONTH - 1, day);
   return t >= unlockDate;
@@ -76,18 +76,8 @@ async function fetchDays() {
 }
 
 // ================================
-// SHUFFLE HELPERS
+// SHUFFLE
 // ================================
-function shuffle(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-// Stable scramble: same order every refresh for everyone
 function stableShuffle(array, seedStr) {
   let seed = 0;
   for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
@@ -108,20 +98,28 @@ function stableShuffle(array, seedStr) {
 }
 
 function getScrambledDays() {
-  if (!STABLE_SCRAMBLE) return shuffle(DOOR_DAYS);
-
-  // One seed for the site. You can change this value to reshuffle.
-  // TIP: change "v1" to "v2" later if you want a new scramble order.
-  const seed = "christmas-scramble-v1";
-  return stableShuffle(DOOR_DAYS, seed);
+  if (!STABLE_SCRAMBLE) return [...DOOR_DAYS].sort(() => Math.random() - 0.5);
+  return stableShuffle(DOOR_DAYS, "christmas-scramble-v1");
 }
 
 // ================================
-// IMAGE PATH
+// IMAGE PATHS
 // ================================
-function imagePathForDay(day) {
+
+// Door-front images (your current naming)
+function doorFrontPath(day) {
   const n = String(day).padStart(2, "0");
   return `assets/img/doors/Door${n}-Blue.png`;
+}
+
+// "Inside the door" image helper (supports many filename styles)
+// Priority:
+// 1) If days.json provides image path, use it.
+// 2) Else fallback to assets/img/inside/day##.jpg or .png (if you want that pattern)
+function insideImageFallback(day) {
+  const n = String(day).padStart(2, "0");
+  // you can change these defaults if you like:
+  return `assets/img/inside/day${n}.jpg`;
 }
 
 // ================================
@@ -129,9 +127,8 @@ function imagePathForDay(day) {
 // ================================
 function addPreviewBadge() {
   if (!PREVIEW_MODE) return;
-
   const badge = document.createElement("div");
-  badge.textContent = "PREVIEW MODE (preview=1)";
+  badge.textContent = "PREVIEW MODE (?preview=1)";
   badge.style.position = "fixed";
   badge.style.left = "12px";
   badge.style.bottom = "12px";
@@ -151,31 +148,21 @@ function addPreviewBadge() {
 // ================================
 function renderDoors() {
   $cal.innerHTML = "";
-
   const scrambledDays = getScrambledDays();
 
   scrambledDays.forEach(day => {
-    const data =
-      DAYS_DATA.find(d => d.day === day) ||
-      { day, title: `Day ${day}`, html: "<p>Surprise awaits!</p>" };
-
+    const data = DAYS_DATA.find(d => d.day === day) || { day, title: `Day ${day}`, html: "<p>Surprise awaits!</p>" };
     const unlocked = isUnlocked(day);
-    const imgSrc = imagePathForDay(day);
 
     const btn = document.createElement("button");
-    btn.className =
-      "door" +
-      (unlocked ? "" : " locked") +
-      (state.done.has(day) ? " done" : "");
-
+    btn.className = "door" + (unlocked ? "" : " locked") + (state.done.has(day) ? " done" : "");
     btn.dataset.day = day;
-    btn.setAttribute("aria-disabled", unlocked ? "false" : "true");
 
     btn.innerHTML = `
       <div class="door-inner">
         <span class="day-badge">${day}</span>
         <div class="door-art">
-          <img src="${imgSrc}" alt="Christmas door for day ${day}" loading="lazy">
+          <img src="${doorFrontPath(day)}" alt="Christmas door for day ${day}" loading="lazy">
         </div>
       </div>
     `;
@@ -186,17 +173,75 @@ function renderDoors() {
 }
 
 // ================================
-// MODAL
+// MODAL CONTENT BUILDER
+// Makes it work "like Halloween"
 // ================================
+function escapeAttr(s) {
+  return String(s || "").replace(/"/g, "&quot;");
+}
+
+function buildModalHTML(day, data) {
+  // If your days.json already has full HTML, use it directly
+  if (data.html && typeof data.html === "string" && data.html.trim().length > 0) {
+    return data.html;
+  }
+
+  // Otherwise support Halloween-style fields:
+  // data.image OR data.img OR data.activityImage
+  const img =
+    data.image ||
+    data.img ||
+    data.activityImage ||
+    insideImageFallback(day);
+
+  const caption = data.caption || data.description || "";
+
+  // Optional Halloween-style links/buttons
+  const bonusHref = data.bonusHref || (data.bonus && data.bonus.href) || "";
+  const bonusLabel = data.bonusLabel || (data.bonus && data.bonus.label) || "Daily Bonuses";
+
+  const activityHref = data.activityHref || (data.activity && data.activity.href) || "";
+  const activityLabel = data.activityLabel || (data.activity && data.activity.label) || "Go to activity";
+
+  // Build HTML similar to your screenshot (big image + two buttons)
+  const buttons = `
+    <div style="display:flex; justify-content:space-between; gap:12px; margin-top:14px; flex-wrap:wrap;">
+      ${bonusHref ? `<a href="${escapeAttr(bonusHref)}" target="_blank" rel="noopener"
+        style="text-decoration:none; background:#ff8a00; color:#000; padding:12px 16px; border-radius:12px; font-weight:700; display:inline-block;">
+        ${bonusLabel}
+      </a>` : ""}
+
+      ${activityHref ? `<a href="${escapeAttr(activityHref)}" target="_blank" rel="noopener"
+        style="text-decoration:none; background:#ff8a00; color:#000; padding:12px 16px; border-radius:12px; font-weight:700; display:inline-block; margin-left:auto;">
+        ${activityLabel}
+      </a>` : ""}
+    </div>
+  `;
+
+  return `
+    <img src="${escapeAttr(img)}"
+         alt="Day ${day} activity"
+         style="max-width:100%; border-radius:14px; display:block; margin-bottom:12px;">
+    ${caption ? `<p style="margin:0 0 8px 0;">${caption}</p>` : ""}
+    ${bonusHref || activityHref ? buttons : ""}
+  `;
+}
+
 function openDay(day, unlocked, data) {
   if (!unlocked) return;
 
   currentDay = day;
-  $modalTitle.textContent = `Day ${day}: ${data.title}`;
-  $modalContent.innerHTML = data.html;
+  // Default title style like your Halloween modal
+  const title = data.modalTitle || data.title || `Day ${day} Activity`;
+  $modalTitle.textContent = title;
+
+  $modalContent.innerHTML = buildModalHTML(day, data);
   $modal.showModal();
 }
 
+// ================================
+// MODAL BUTTONS (Mark done / Share)
+// ================================
 $close.addEventListener("click", () => $modal.close());
 
 $mark.addEventListener("click", () => {
@@ -210,14 +255,9 @@ $mark.addEventListener("click", () => {
 
 $share.addEventListener("click", async () => {
   if (!currentDay) return;
-
   const url = location.href.split("#")[0] + `#day=${currentDay}`;
   if (navigator.share) {
-    await navigator.share({
-      title: "Advent Calendar",
-      text: `I opened Day ${currentDay}!`,
-      url
-    });
+    await navigator.share({ title: "Advent Calendar", text: `I opened Day ${currentDay}!`, url });
   } else {
     await navigator.clipboard.writeText(url);
     alert("Link copied!");
@@ -250,16 +290,13 @@ $share.addEventListener("click", async () => {
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "rgba(255,255,255,.85)";
-
     flakes.forEach(f => {
       f.y += f.s;
       if (f.y > canvas.height) f.y = -5;
-
       ctx.beginPath();
       ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
       ctx.fill();
     });
-
     rafId = requestAnimationFrame(draw);
   }
 
@@ -289,12 +326,10 @@ $share.addEventListener("click", async () => {
 // ================================
 (async function init() {
   addPreviewBadge();
-
   try {
     await fetchDays();
   } catch (e) {
     console.warn("days.json missing or invalid", e);
   }
-
   renderDoors();
 })();

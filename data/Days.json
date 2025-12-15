@@ -1,67 +1,132 @@
 [
   {
     "day": 13,
-    "title": "Who's Coming For Dinner?",
-    "html": "<img src='assets/img/coverpages/day13.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Everyone gets a spot — Can you figure out who sits where? — </p>"
+    "title": "Day 1",
+    "image": "assets/img/inside/Day13.png",
+    "caption": "Everyone has a spot - Can you figure out where everyone is sitting?.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day13",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 14,
-    "title": "Polar Express Cryptogram",
-    "html": "<assets/img/Coverpages/day14.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Pick a favorite Christmas movie, grab some snacks, and enjoy a festive night in.</p>"
+    "title": "Christmas Movie Night 🎬",
+    "image": "assets/img/inside/day14.png",
+    "caption": "Pick a favorite Christmas movie and enjoy a festive night in.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day14",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 15,
-    "title": "Carol Crossword",
-    "html": "<img src='assets/img/Coverpages/day15.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Make yourself a warm drink — cocoa, tea, or coffee — and savor a quiet moment.</p>"
+    "title": "Warm Drink Break ☕",
+    "image": "assets/img/inside/day15.png",
+    "caption": "Make a cocoa/tea/coffee and take a slow, cozy moment.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day15",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 16,
-    "title": "Holiday Hangman",
-    "html": "<img src='assets/img/Coverpages/day16.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Do one small act of kindness today. It can be as simple as a smile or a kind message.</p>"
+    "title": "Holiday Kindness 💖",
+    "image": "assets/img/inside/day16.png",
+    "caption": "Do one small act of kindness today—big or small counts.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day16",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 17,
-    "title": "Reindeer Seek & Find",
-    "html": "<img src='assets/img/Coverpages/day17.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Put on your favorite Christmas music and let it fill your space with cheer.</p>"
+    "title": "Holiday Fun 🎄",
+    "image": "assets/img/inside/day17.png",
+    "caption": "Today’s activity is ready—tap Go to activity when you’re set!",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day17",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 18,
-    "title": "Letters to Santa",
-    "html": "<img src='assets/img/Coverpages/day18.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Bake cookies, brownies, or a festive treat — or simply enjoy one you love.</p>"
+    "title": "Bake Something Sweet 🍪",
+    "image": "assets/img/inside/day18.png",
+    "caption": "Bake cookies or treat yourself to something festive.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day18",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 19,
-    "title": "Gingerbread Suduko",
-    "html": "<img src='assets/img/Coverpages/day19.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Add a little Christmas cheer somewhere — a decoration, lights, or even your desk.</p>"
+    "title": "Decorate Something 🎁",
+    "image": "assets/img/inside/day19.png",
+    "caption": "Add a little Christmas cheer somewhere—anywhere!",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day19",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 20,
-    "title": "4 Pics 1 Word",
-    "html": "<img src='assets/img/Coverpages/day20.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Look through old holiday photos or reflect on a favorite Christmas memory.</p>"
+    "title": "Memory Lane 📸",
+    "image": "assets/img/inside/day20.png",
+    "caption": "Look through old holiday photos or remember a favorite moment.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day20",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 21,
-    "title": "Word Scramble",
-    "html": "<img src='assets/img/Coverpages/day21.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Dim the lights, light a candle, and enjoy a peaceful, cozy evening.</p>"
+    "title": "Cozy Night In 🕯️",
+    "image": "assets/img/inside/day21.png",
+    "caption": "Dim the lights, get comfy, and enjoy an extra cozy evening.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day21",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 22,
-    "title": "Movie Emoji",
-    "html": "<img src='assets/img/Coverpages/day22.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Write down three things you’re grateful for this season.</p>"
+    "title": "Gratitude Moment 🌟",
+    "image": "assets/img/inside/day22.png",
+    "caption": "Write down 3 things you’re grateful for this season.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day22",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 23,
-    "title": "Find The Hidden Word",
-    "html": "<img src='assets/img/Coverpages/day23.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Send a message or call someone you haven’t talked to in a while.</p>"
+    "title": "Reach Out 💌",
+    "image": "assets/img/inside/day23.png",
+    "caption": "Send a kind message or call someone you miss.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day23",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 24,
-    "title": "Clue-Murder at the North Pole",
-    "html": "<img src='assets/img/Coverpages/day24.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Enjoy the magic of Christmas Eve. Slow down and take it all in.</p>"
+    "title": "Christmas Eve Magic ✨",
+    "image": "assets/img/inside/day24.png",
+    "caption": "It’s Christmas Eve—slow down and enjoy the magic.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day24",
+    "activityLabel": "Go to activity"
   },
   {
     "day": 25,
     "title": "Merry Christmas 🎄",
-    "html": "<img src='assets/img/Coverpages/day25.png' style='max-width:100%; border-radius:12px; margin-bottom:1rem;'><p>Merry Christmas! I hope your day is filled with warmth, love, and joy.</p>"
+    "image": "assets/img/inside/day25.png",
+    "caption": "Merry Christmas! Wishing you warmth, love, and joy today.",
+    "bonusHref": "https://example.com/bonuses",
+    "bonusLabel": "Daily Bonuses",
+    "activityHref": "https://example.com/day25",
+    "activityLabel": "Go to activity"
   }
 ]
